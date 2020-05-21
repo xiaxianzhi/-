@@ -45,8 +45,7 @@ def ex_jupyterCourseId():
     return extract_jupyter_courseid
 
 
-def ex_jupyterClassId():
-    userData = ex_user()
+def ex_jupyterClassId(userData):
     extract_jupyter_courseid = ex_jupyterCourseId()
     # 提取jupyter_id
     url10 = 'https://xiaoke-test.kaikeba.com/api/v1.0/small-course/user/{}/purchased-course/{}?token={}&app_data=&scope=1'.format(
@@ -60,7 +59,7 @@ def ex_jupyterClassId():
 
 
 def ex_userNameData(userData,extract_jupyter_courseid):
-    jupyterData = ex_jupyterClassId()
+    jupyterData = ex_jupyterClassId(userData)
     # 提取username-xiaoke
     url17 = 'https://xiaoke-test.kaikeba.com/smallcourse-jupyter/notebooks/{}/{}/{}/{}/python-excel/python_excel.ipynb?kkb_course_type=spbl&t={}&token=157ea116ef293d4dd74ca37f4c7f40360906f7a8d7f3c643'.format(
         userData[0], extract_jupyter_courseid, jupyterData[0], jupyterData[1], timeStamp)
